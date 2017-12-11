@@ -13,7 +13,7 @@ var subscription = source.subscribe(
         console.log(new Date(), "Next:%s", x);
     },
     function (err) {
-        console.log(new Date(), "Error:" + err);
+        console.log(new Date(), "Error:", err);
     },
     function () {
         console.log(new Date(), "Completed");

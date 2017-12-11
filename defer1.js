@@ -8,14 +8,14 @@ var source = Rx.Observable.defer(function () {
 
 setTimeout(function() {
     var subscription = source.subscribe(
-        function (x) { console.log('Next: ' + x); },
-        function (err) { console.log('Error: ' + err); },
+        function (x) { console.log("Next:", x); },
+        function (err) { console.log("Error:", err); },
         function () { console.log('Completed'); } );
 }, 3000);
 
 setTimeout(function() {
     var subscription = source.subscribe(
-        function (x) { console.log('Next: ' + x); },
-        function (err) { console.log('Error: ' + err); },
+        function (x) { console.log("Next:", x); },
+        function (err) { console.log("Error:", err); },
         function () { console.log('Completed'); } );
 }, 5000);

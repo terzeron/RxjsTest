@@ -13,8 +13,8 @@ const source = Rx.Observable.from(people)
       .mergeMap(group => group.toArray());
 
 var subscription = source.subscribe(
-    function(x) { console.log("Next: ", x); },
-    function(err) { console.log("Error: ", err); },
+    function(x) { console.log("Next:", x); },
+    function(err) { console.log("Error:", err); },
     function() { console.log("Completed"); }
 );
 
