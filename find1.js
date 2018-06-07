@@ -1,6 +1,8 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.empty();
+var source = Rx.Observable.range(0, 10).find(function (x, idx, obs) {
+    return x === 5;
+});
 
 var subscription = source.subscribe(
     function (x) {
