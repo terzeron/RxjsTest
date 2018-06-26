@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 const example = Rx.Observable.of(null);
 

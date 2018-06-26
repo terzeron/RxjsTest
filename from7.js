@@ -1,10 +1,10 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
-var exists = Rx.Observable.bindCallback(fs.exists);
-var source = exists('file.txt');
+const exists = Rx.Observable.bindCallback(fs.exists);
+const source = exists('file.txt');
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

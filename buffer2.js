@@ -1,8 +1,8 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var openings = Rx.Observable.interval(200);
+const openings = Rx.Observable.interval(200);
 
-var source = Rx.Observable
+const source = Rx.Observable
     // 50ms마다 
     .interval(50)
     // openings에서 200ms마다 발생하는데 100ms만큼 더 기다리면서 버퍼링
@@ -12,7 +12,7 @@ var source = Rx.Observable
     // take의 파라미터 수에 따라 Next 출력 행 수가 달라짐
     .take(4);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

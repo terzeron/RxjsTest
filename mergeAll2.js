@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 // 0.5초마다 데이터 생성하고 5개만 취함
 const interval = Rx.Observable.interval(500).take(5);
@@ -41,7 +41,7 @@ const example = interval
     .map(val => interval.delay(1000).take(3))
     .mergeAll(3);
 
-var subscription = example.subscribe(
+const subscription = example.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

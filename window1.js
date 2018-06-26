@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 // 1초마다 생성되는 source
 const source = Rx.Observable.timer(0, 1000);

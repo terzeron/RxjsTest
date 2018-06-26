@@ -1,5 +1,5 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
 const people = [
     { name: 'Sue', age: 25 },
@@ -12,7 +12,7 @@ const source = Rx.Observable.from(people)
       .groupBy(person => person.age)
       .mergeMap(group => group.toArray());
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

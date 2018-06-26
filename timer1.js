@@ -1,6 +1,6 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable
+const source = Rx.Observable
     // 200ms 후부터, 100ms마다 
     .timer(200, 100)
     // TimeInterval { value: 일련번호, interval: 104 }같은 형태의 자료로 변환
@@ -9,7 +9,7 @@ var source = Rx.Observable
     .pluck('interval')
     .take(3);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

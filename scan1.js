@@ -1,5 +1,5 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
 const subject = new Rx.Subject();
 // 0에서 시작해서 acc에 curr값을 더하는 accumulator를 만듬

@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 Rx.Observable.from("foo").subscribe(
     function (x) {

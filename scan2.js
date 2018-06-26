@@ -1,5 +1,5 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
 // json 객체에 필드를 추가해가는 예제
 

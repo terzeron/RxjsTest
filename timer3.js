@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 /*
   timer takes a second argument, how often to emit subsequent values

@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 Rx.Observable.from({length: 5}).map(function(v, k) { return v + " => " + k; }).subscribe(
     function (x) {

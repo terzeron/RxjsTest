@@ -1,10 +1,10 @@
 const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.range(0, 10).find(function (x, idx, obs) {
+const source = Rx.Observable.range(0, 10).find(function (x, idx, obs) {
     return x === 5;
 });
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

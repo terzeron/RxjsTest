@@ -1,9 +1,9 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-//var source = Rx.Observable.just(42);
-var source = Rx.Observable.of(42);
+//const source = Rx.Observable.just(42);
+const source = Rx.Observable.of(42);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

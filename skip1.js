@@ -1,8 +1,8 @@
 const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.range(0, 5).skip(3);
+const source = Rx.Observable.range(0, 5).skip(3);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

@@ -1,10 +1,10 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
-var rename = Rx.Observable.bindNodeCallback(fs.rename);
-var source = rename('file1.txt', 'file2.txt');
+const rename = Rx.Observable.bindNodeCallback(fs.rename);
+const source = rename('file1.txt', 'file2.txt');
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

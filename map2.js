@@ -1,5 +1,5 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
 const source = Rx.Observable.from([
     { name: 'Joe', age: 30},
@@ -9,7 +9,7 @@ const source = Rx.Observable.from([
 
 const example = source.map(person => person.name);
 
-var subscription = example.subscribe(
+const subscription = example.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },
