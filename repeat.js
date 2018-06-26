@@ -1,10 +1,10 @@
-var Rx = require('@reactivex/rxjs');
-//var Rx = require('rxjs');
+const Rx = require('@reactivex/rxjs');
 
 // 실행 안 됨
-var source = Rx.Observable.repeat(42, 3);
+const source = Rx.Observable.range(12, 3)
+    .repeat(3);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

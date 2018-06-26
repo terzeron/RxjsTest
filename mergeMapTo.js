@@ -1,9 +1,9 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.of(42)
-    .mergeMapTo(Rx.Observable.throw(new Error('error!')));
+const source = Rx.Observable.of(42)
+    .mergeMapTo(Rx.Observable.throwError(new Error('error!')));
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },
