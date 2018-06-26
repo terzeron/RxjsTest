@@ -21,12 +21,13 @@ var source = Rx.Observable.from(codes)
 
 
 var subscription = source.subscribe(
-    function(o) {
-        o.count().subscribe(function(x) {
-            console.log("Count:", x);
-        });
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) { console.log("Error:", err); },
-    function() { console.log("Completed"); }
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
 );
-

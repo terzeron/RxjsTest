@@ -10,8 +10,13 @@ const source = Rx.Observable.from([
 const example = source.map(person => person.name);
 
 var subscription = example.subscribe(
-    function(x) { console.log("Next:", x); },
-    function(err) { console.log("Error:", err); },
-    function() { console.log("Completed"); }
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
 );
-

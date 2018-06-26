@@ -7,4 +7,14 @@ const example = source
       .map(val => myPromise(val))
       .mergeAll();
 
-const subscription = example.subscribe(val => console.log(val));
+const subscription = example.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
+);

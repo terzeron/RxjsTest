@@ -9,14 +9,13 @@ var obj = {
 var source = Rx.Observable.pairs(obj);
 
 var subscription = source.subscribe(
-    function(x) {
-        console.log("Next:", x);
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) {
-        console.log("Error:", err);
+    function (err) {
+        console.log(new Date(), "Error:", err);
     },
-    function() {
-        console.log("Completed");
+    function () {
+        console.log(new Date(), "Completed");
     }
 );
-

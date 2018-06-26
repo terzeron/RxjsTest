@@ -10,7 +10,7 @@ var source = Rx.Observable.timer(0, 50)
 
 var subscription = source.subscribe(
     function (x) {
-        console.log(new Date(), "Next:%s", x);
+        console.log(new Date(), "Next:", x);
     },
     function (err) {
         console.log(new Date(), "Error:", err);
@@ -18,4 +18,4 @@ var subscription = source.subscribe(
     function () {
         console.log(new Date(), "Completed");
     }
-)
+);

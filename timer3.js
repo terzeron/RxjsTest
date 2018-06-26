@@ -9,4 +9,14 @@ var Rx = require('@reactivex/rxjs');
 const source = Rx.Observable.timer(1000, 2000);
 
 // output: 0,1,2,3,4,5......
-const subscribe = source.subscribe(val => console.log(new Date(), "Next:", val));
+const subscribe = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
+);

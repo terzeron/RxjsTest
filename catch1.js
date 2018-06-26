@@ -1,8 +1,10 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.of(42, 24, 42, 3, 24, 2).distinct();
+const source = Rx.Observable.throwError('This is an error');
 
-var subscription = source.subscribe(
+const example = source.catch(val => Rx.Observable.of(`I caught: ${val}`));
+
+const subscription = example.subscribe(
     function (x) {
         console.log(new Date(), "Next:", x);
     },

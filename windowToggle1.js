@@ -22,4 +22,14 @@ const example = source
 // window를 merge해도 시간 차는 존재함
 const subscription = example
       .mergeAll()
-      .subscribe(val => console.log(val));
+      .subscribe(
+          function (x) {
+              console.log(new Date(), "Next:", x);
+          },
+          function (err) {
+              console.log(new Date(), "Error:", err);
+          },
+          function () {
+              console.log(new Date(), "Completed");
+          }
+      );

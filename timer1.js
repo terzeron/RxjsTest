@@ -11,13 +11,12 @@ var source = Rx.Observable
 
 var subscription = source.subscribe(
     function (x) {
-        console.log(x);
-        console.log(new Date, "Next:", x);
+        console.log(new Date(), "Next:", x);
     },
     function (err) {
-        console.log(new Date, "Error:", err);
+        console.log(new Date(), "Error:", err);
     },
     function () {
-        console.log(new Date, "Completed");
+        console.log(new Date(), "Completed");
     }
 );
