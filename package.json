@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@reactivex/rxjs": "^6.2.1",
-    "rsvp": "^4.8.2",
+    "rsvp": "^4.8.3",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1"
   },
