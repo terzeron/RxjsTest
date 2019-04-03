@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 const example = Rx.Observable.of(null);
 
@@ -10,4 +10,14 @@ const message = Rx.Observable.merge(
 );
 // example에 대해 상대적으로 1, 2, 3초의 지연이 발생하므로
 // 절대시각으로는 1초마다 하나씩 출력됨
-const subscription = message.subscribe(val => console.log(new Date, val));
+const subscription = message.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
+);

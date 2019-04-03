@@ -1,6 +1,6 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable
+const source = Rx.Observable
     .from([{
             value: 0
         },
@@ -13,13 +13,14 @@ var source = Rx.Observable
     ])
     .pluck('value');
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
-        console.log("Next:", x);
+        console.log(new Date(), "Next:", x);
     },
     function (err) {
-        console.log("Error:", err);
+        console.log(new Date(), "Error:", err);
     },
     function () {
-        console.log('Completed');
-    });
+        console.log(new Date(), "Completed");
+    }
+);

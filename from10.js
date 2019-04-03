@@ -1,9 +1,9 @@
-var Rx = require('@reactivex/rxjs');
-var EventEmitter = require('events').EventEmitter;
+const Rx = require('@reactivex/rxjs');
+const EventEmitter = require('events').EventEmitter;
 
-var eventEmitter = new EventEmitter();
+const eventEmitter = new EventEmitter();
 
-var source = Rx.Observable.fromEvent(
+const source = Rx.Observable.fromEvent(
     eventEmitter,
     'data',
     function(first, second) {
@@ -11,16 +11,15 @@ var source = Rx.Observable.fromEvent(
     }
 );
 
-var subscription = source.subscribe(
-    function(x) {
-        console.log("Next:", x);
-        console.log(x.foo + " " + x.bar);
+const subscription = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) {
-        console.log("Error:", err);
+    function (err) {
+        console.log(new Date(), "Error:", err);
     },
-    function() {
-        console.log("Completed");
+    function () {
+        console.log(new Date(), "Completed");
     }
 );
 

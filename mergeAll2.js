@@ -1,4 +1,4 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
 // 0.5초마다 데이터 생성하고 5개만 취함
 const interval = Rx.Observable.interval(500).take(5);
@@ -38,6 +38,17 @@ const subscription = interval.subscribe(
 // 같은 시각에 출력된 건 미묘한 차이로 순서가 뒤바뀔 수 있음
 console.log(new Date);
 const example = interval
-      .map(val => interval.delay(1000).take(3))
-      .mergeAll(3)
-      .subscribe(val => console.log(new Date, "Observable2:", val));
+    .map(val => interval.delay(1000).take(3))
+    .mergeAll(3);
+
+const subscription = example.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
+);

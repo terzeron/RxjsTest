@@ -1,16 +1,20 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.timer(0, 50)
-    // 바로 시작해서 50ms마다 생성하는 타이머
-    .buffer(function () {
-        // 125ms 후에 시작하는 타이머
-        return Rx.Observable.timer(125);
+const openings = Rx.Observable.interval(200);
+
+const source = Rx.Observable
+// 50ms마다
+    .interval(50)
+    // openings에서 200ms마다 발생하는데 100ms만큼 더 기다리면서 버퍼링
+    .buffer(openings, function (x) {
+        return Rx.Observable.timer(x + 100);
     })
-    .take(3);
+    // take의 파라미터 수에 따라 Next 출력 행 수가 달라짐
+    .take(4);
 
-var subscription = source.subscribe(
+const subscription = source.subscribe(
     function (x) {
-        console.log(new Date(), "Next:%s", x);
+        console.log(new Date(), "Next:", x);
     },
     function (err) {
         console.log(new Date(), "Error:", err);
@@ -18,4 +22,4 @@ var subscription = source.subscribe(
     function () {
         console.log(new Date(), "Completed");
     }
-)
+);

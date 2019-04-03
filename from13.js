@@ -1,21 +1,20 @@
-var Rx = require('@reactivex/rxjs');
-var RSVP = require('rsvp');
+const Rx = require('@reactivex/rxjs');
+const RSVP = require('rsvp');
 
-var promise = new RSVP.Promise(function(resolve, reject) {
+const promise = new RSVP.Promise(function(resolve, reject) {
     reject(new Error('reason'));
 });
 
-var source = Rx.Observable.fromPromise(promise);
+const source = Rx.Observable.fromPromise(promise);
 
-var subscription = source.subscribe(
-    function(x) {
-        console.log("Next:", x);
+const subscription = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) {
-        console.log("Error:", err);
+    function (err) {
+        console.log(new Date(), "Error:", err);
     },
-    function() {
-        console.log("Completed");
+    function () {
+        console.log(new Date(), "Completed");
     }
 );
-

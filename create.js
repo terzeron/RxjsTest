@@ -1,6 +1,6 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var source = Rx.Observable.create(function (observer) {
+const source = Rx.Observable.create(function (observer) {
     //observer.onNext(42);
     //observer.onCompleted();
     observer.next(42);
@@ -10,8 +10,14 @@ var source = Rx.Observable.create(function (observer) {
     return function () { console.log('disposed'); };
 });
 
-var subscription = source.subscribe(
-    function (x) { console.log("Next:", x); },
-    function (err) { console.log("Error:", err); },
-    function () { console.log('Completed'); }
+const subscription = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
 );

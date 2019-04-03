@@ -1,10 +1,10 @@
-var Rx = require('@reactivex/rxjs');
+const Rx = require('@reactivex/rxjs');
 
-var shouldRun = false;
+const shouldRun = false;
 
 // if
 // false라서 56이 반환됨
-var source = Rx.Observable.if(
+const source = Rx.Observable.if(
     function() {
         return shouldRun;
     },
@@ -12,15 +12,14 @@ var source = Rx.Observable.if(
     Rx.Observable.of(56)
 );
 
-var subscription = source.subscribe(
-    function(x) {
-        console.log("Next:", x);
+const subscription = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) {
-        console.log("Error:", err);
+    function (err) {
+        console.log(new Date(), "Error:", err);
     },
-    function() {
-        console.log("Completed");
+    function () {
+        console.log(new Date(), "Completed");
     }
 );
-    

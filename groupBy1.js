@@ -1,7 +1,7 @@
-var Rx = require('@reactivex/rxjs');
-var fs = require('fs');
+const Rx = require('@reactivex/rxjs');
+const fs = require('fs');
 
-var codes = [
+const codes = [
     { keyCode: 38 }, // up
     { keyCode: 38 }, // up
     { keyCode: 40 }, // down
@@ -13,20 +13,21 @@ var codes = [
     { keyCode: 66 }, // b
     { keyCode: 65 }  // a
 ];
-var source = Rx.Observable.from(codes)
+const source = Rx.Observable.from(codes)
     .groupBy(
         function(x) { return x.keyCode; },
         function(x) { return x.keyCode; }
     );
 
 
-var subscription = source.subscribe(
-    function(o) {
-        o.count().subscribe(function(x) {
-            console.log("Count:", x);
-        });
+const subscription = source.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
     },
-    function(err) { console.log("Error:", err); },
-    function() { console.log("Completed"); }
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
 );
-

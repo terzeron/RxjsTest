@@ -11,5 +11,14 @@ const example = source
           () => Rx.Observable.timer(1000)
       );
 
-const subscription = example
-      .subscribe(val => console.log(new Date, val));
+const subscription = example.subscribe(
+    function (x) {
+        console.log(new Date(), "Next:", x);
+    },
+    function (err) {
+        console.log(new Date(), "Error:", err);
+    },
+    function () {
+        console.log(new Date(), "Completed");
+    }
+);
