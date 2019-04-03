@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@reactivex/rxjs": "^5.4.3",
+    "@reactivex/rxjs": "^5.5.12",
     "jquery": "^3.2.1",
     "rsvp": "^4.0.1",
     "rxjs": "^5.4.3"
